@@ -1,14 +1,11 @@
-<img src="zoom.gif" height="550" width="430">
-
-
-# Sample Project
-You can download the latest sample APK from this repo here: https://github.com/rodLibs/imageZoom/blob/master/sample/sample.apk
+# PersistCookie
+This library allows you to save web service cookie using OkHttp 2.7.0.
 </br>
 </br>
 
 
 # Requirements
-imageZoom requires at minimum Android 2.3 (API level 9).
+PersistCookie requires at minimum Android 2.3 (API level 15).
 </br>
 </br>
 
@@ -23,8 +20,8 @@ The Gradle dependency is available via maven. maven is the default Maven reposit
 <pre><code>
 repositories {
     maven {
-        url  "https://dl.bintray.com/rod120/imageZoom" 
-    }
+          url  "https://dl.bintray.com/rod120/persistCookie"
+   }
 }
 </code></pre>
 
@@ -35,7 +32,7 @@ repositories {
 #### Gradle:
 <pre><code>
 dependencies {
-    compile 'com.github.rodlibs:imageZoom:1.0'
+    compile 'com.github.rodlibs:persistCookies:1.2'
 }
 </code></pre>
 
@@ -44,8 +41,8 @@ dependencies {
 ```xml
  <dependency>
   <groupId>com.github.rodlibs</groupId>
-  <artifactId>imageZoom</artifactId>
-  <version>1.0</version>
+  <artifactId>persistCookies</artifactId>
+  <version>1.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -56,28 +53,22 @@ dependencies {
 # Simple usage
 #### .java
 <pre><code>
- ZoomImageView imgZoom = (ZoomImageView) findViewById(R.id.imageZoom);
+  PersistentCookieStore myCookie= new PersistentCookieStore(context);
 </code></pre>
-
+###### write cookies
 <pre><code>
- imgZoom.setImageBitmap(myBitmap);
+  CookieManager cookieManage = new CookieManager(myCookie, CookiePolicy.ACCEPT_ALL)
 </code></pre>
-###### Or
+###### read cookies
 <pre><code>
- imgZoom.setImageResource(R.drawable.myImage);
+  myCookie.getCookies().get(0).getDomain()
 </code></pre>
 </br>
 
 
-#### .xml
-```xml
- <com.github.rodlibs.libimagezoom.ZoomImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageZoom" />
-```
-</br>
-</br>
+
+
+
 
 
 
