@@ -66,8 +66,30 @@ dependencies {
 </br>
 
 
+#### .kt
+<pre><code>
+  PersistentCookieStore myCookie= new PersistentCookieStore(context);
+</code></pre>
+###### write cookies
+<pre><code>
+  CookieManager cookieManage = new CookieManager(myCookie, CookiePolicy.ACCEPT_ALL)
+</code></pre>
+###### read cookies
+<pre><code>
+  myCookie.getCookies().get(0).getDomain()
+</code></pre>
+</br>
 
 
+
+
+#### Example with OkHttp
+<pre><code>
+  OkHttpClient client = new OkHttpClient();
+  client.setConnectTimeout(30, TimeUnit.SECONDS);
+  client.setCookieHandler(new CookieManager(myCookie, CookiePolicy.ACCEPT_ALL)); 
+</code></pre>
+</br>
 
 
 
