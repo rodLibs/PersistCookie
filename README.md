@@ -68,15 +68,15 @@ dependencies {
 
 #### .kt
 <pre><code>
-  PersistentCookieStore myCookie= new PersistentCookieStore(context);
+  var myCookie: PersistentCookieStore = PersistentCookieStore(context)
 </code></pre>
 ###### write cookies
 <pre><code>
-  CookieManager cookieManage = new CookieManager(myCookie, CookiePolicy.ACCEPT_ALL)
+  var cookieManage: CookieManager  = CookieManager(myCookie, CookiePolicy.ACCEPT_ALL)
 </code></pre>
 ###### read cookies
 <pre><code>
-  myCookie.getCookies().get(0).getDomain()
+  myCookie.cookies.get(0).domain
 </code></pre>
 </br>
 
